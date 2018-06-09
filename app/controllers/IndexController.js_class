@@ -1,0 +1,67 @@
+/*
+*   IndexController.js
+*
+*   Controller as a Class
+*
+*/
+
+//  Models
+// var userModel = require('../models/User');
+
+class IndexController {
+
+    constructor(){
+      console.log('IndexController was created');
+    }
+
+
+    /**
+    * @api {GET}         /         Index()
+    * @apiDescription              Формирование главной страницы
+    * @apiName                     Index(req, res)
+    * @apiGroup                    IndexController
+    * @apiParam {Object}    res    Объект  Response
+    * @apiParam {Object}    req    Объект  Request
+    */
+    Index (req, res) {
+       let viewArgs = {
+          greeting: 'Bullz is greeting you!',
+          words: 'Makes problems run'
+       }
+
+       console.log( this.someMethod() );
+
+       res.render('index', viewArgs);
+    }
+
+
+    // test method
+    someMethod () {
+      return 'test';
+    }
+
+
+
+    /**
+    * @api [ANY]         /t        Test()
+    * @apiDescription              test api
+    * @apiName                     Test(req, res)
+    * @apiGroup                    IndexController
+    * @apiParam {Object}    res    Объект  Response
+    * @apiParam {Object}    req    Объект  Request
+    */
+    Test (req, res) {
+      console.log('---------------------------------------')
+      console.log('Method is ' + req.method )
+      console.log('Body   = ' + JSON.stringify(req.body) )
+      console.log('Params = ' + JSON.stringify(req.params) )
+      console.log('Query   = ' + JSON.stringify(req.query) )
+      console.log('Content-type (Request) = ' + req.headers['content-type'])
+
+      res.send({ok: 'ok'})
+    }
+}
+
+
+
+module.exports = new IndexController();
