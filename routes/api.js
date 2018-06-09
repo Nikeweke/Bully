@@ -11,5 +11,5 @@
 const CheckRequest =  require('../app/helpers/CheckRequest');
 
 module.exports = function (app) {
-  app.all('/t', CheckRequest.Check)
+  app.all('/api', CheckRequest.Check)
 }
