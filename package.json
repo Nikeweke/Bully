@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Nikeweke/Bullz.git",
   "dependencies": {
+    "bcrypt": "^2.0.1",
     "body-parser": "^1.15.2",
     "colors": "^1.1.2",
     "cookie-parser": "^1.4.3",
