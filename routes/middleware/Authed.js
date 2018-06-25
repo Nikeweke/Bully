@@ -1,11 +1,18 @@
 /*
-*   Authed.js
+*   LoggedIn.js
 *
-*   IF user already authed
+*   IF user not logged in 
 */
-const Authed = (req, res, next) => {
-  console.log('Authed')
+const LoggedIn = (req, res, next) => {
+ 
+  let user = req.cookies.user
+    
+  if (user) {
+    return res.send('You need to log in')
+  }
+  
   next()
 }
-
-module.exports = Authed
+ 
+module.exports = LoggedIn
+ 
