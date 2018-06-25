@@ -54,10 +54,9 @@ module.exports = {
   |--------------------------------------------------------------------------
   | Подключение к Mongodb
   |--------------------------------------------------------------------------
-  |
   */
   connectMongodb () {
-    dbConfig.sqlite.conn = require('mongoose').connect('mongodb://localhost:27017/ToDoDb')
+    dbConfig.mongodb.conn = require('mongoose').connect('mongodb://localhost:27017/ToDoDb')
   }
 
 }
