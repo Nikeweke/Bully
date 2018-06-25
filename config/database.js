@@ -59,12 +59,31 @@ module.exports = {
   |--------------------------------------------------------------------------
   | Подключение к Mongodb
   |--------------------------------------------------------------------------
-  |
   */
   connectMongodb () {
-    let {db_adress} = global.config.databases.mongodb
-    dbConfig.mongodb.conn = require('mongoose').connect(db_adress)
-    console.log(colors.green.bold('MongoDB') + ' => Connected')
+    const {db_adress} = global.config.databases.mongodb
+    const mongoose = require('mongoose') 
+    mongoose.connect(db_adress).catch(() => {})
+
+    // getting connection
+    let db = mongoose.connection
+
+    // set listeners to events of DB
+    db.on('error', this.errCatcher)
+    db.on('connected', () => console.log(colors.green.bold('MongoDB') + ' => Connected'))
+  },
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Ловит ошибки
+  |--------------------------------------------------------------------------
+  */
+  errCatcher (err) {
+    let error = colors.red.bold('ERROR [' + err.name + '] - ')
+    error += colors.yellow(err.message)
+    console.log(error)
+    // process.exit(1)
   }
 
 }
