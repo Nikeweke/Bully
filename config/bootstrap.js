@@ -77,7 +77,7 @@ module.exports = function () {
   |   Можно закоментировать - приложение будет работать
   |
   */
-  if (global.config.sockets) { sockets(app) }
+  if (global.config.sockets.enabled) { sockets(app) }
 
 
   /*
@@ -99,7 +99,7 @@ module.exports = function () {
   | OFF IT WHEN HAVE A FEW servers and WHEN IN PROD mode
   |
   */
- if (global.config.sockets) { reload(app) }
+  if (global.config.reload) { reload(app) }
 
 
   /*

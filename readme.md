@@ -37,14 +37,15 @@ npm run hrm
 
 ## Пакеты <a id="packages"></a>
 
-  * [express](http://expressjs.com/) - framework для NodeJS
-  * [mysql](https://www.npmjs.com/package/mysql)   - драйвер для работы с MySQL
-  * [sync-mysql](https://www.npmjs.com/package/sync-mysql) - для работы с MySQL без "callback hell"
-  * [squel](https://www.npmjs.com/package/squel) - создание запросов(строк) цепью для выполнение
-  * [cron](https://www.npmjs.com/package/cron) - выполнение работ по расписанию
-  * [body-parser](https://www.npmjs.com/package/body-parser) - получение параметров из http запросов POST
-  * [nunjucks](https://www.npmjs.com/package/nunjucks) - шаблонизатор от Mozilla (похож на Blade)
-  * [colors](https://www.npmjs.com/package/colors) - цвета для консоли
+* [bcrypt](https://www.npmjs.com/package/bcrypt) - bcrypt функции для хеширования паролей
+* [express](http://expressjs.com/) - framework для NodeJS
+* [mysql](https://www.npmjs.com/package/mysql)   - драйвер для работы с MySQL
+* [sync-mysql](https://www.npmjs.com/package/sync-mysql) - для работы с MySQL без "callback hell"
+* [squel](https://www.npmjs.com/package/squel) - создание запросов(строк) цепью для выполнение
+* [cron](https://www.npmjs.com/package/cron) - выполнение работ по расписанию
+* [body-parser](https://www.npmjs.com/package/body-parser) - получение параметров из http запросов POST
+* [nunjucks](https://www.npmjs.com/package/nunjucks) - шаблонизатор от Mozilla (похож на Blade)
+* [colors](https://www.npmjs.com/package/colors) - цвета для консоли
 
 ## Структура <a id="structure"></a>
 #### app

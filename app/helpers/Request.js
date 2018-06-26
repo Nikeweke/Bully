@@ -1,33 +1,27 @@
 /*
 *   Request.js
 *
-*   Some requests method
-*
+*   Math helper functions
 */
 
-// packages
-var axios = require('axios')
+const axios = require('axios')
 
 module.exports = {
 
   /*
-       |--------------------------------------------------------------------------
-       | Получить рандомное целочисельное
-       |--------------------------------------------------------------------------
-       */
-  makeReq: function (url, method, postData) {
-    var headers = {}
-    // var headers = {
+  |--------------------------------------------------------------------------
+  | Получить рандомное целочисельное
+  |--------------------------------------------------------------------------
+  */
+  makeReq: function (url, method = 'get', postData = {}) {
+    let headers = {}
+    // let headers = {
     // 'Content-Type': 'application/x-www-form-urlencoded',
     // };
 
-    method = method || 'get'
-    postData = postData || {}
-
-    return axios[method]
-    (url, postData, {headers: headers})
-      .then(res => { return res })
-      .catch(err => console.log(error))
+    return axios[method](url, postData, {headers: headers})
+      .then(res => res)
+      .catch(console.log)
   }
 
 }

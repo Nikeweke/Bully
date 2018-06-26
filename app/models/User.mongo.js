@@ -1,7 +1,7 @@
 /*
 *  User.js
 *
-*  Model of "users"
+*  Model of "users", mongoose model
 */
 
 const mongoose = require('mongoose')

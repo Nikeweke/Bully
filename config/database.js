@@ -5,6 +5,7 @@
 */
 const colors = require('colors')
 const dbConfig = global.config.databases
+const { errCatcher } = require('../app/helpers/ErrorCatcher')
 
 module.exports = {
 
@@ -69,21 +70,7 @@ module.exports = {
     let db = mongoose.connection
 
     // set listeners to events of DB
-    db.on('error', this.errCatcher)
+    db.on('error', errCatcher)
     db.on('connected', () => console.log(colors.green.bold('MongoDB') + ' => Connected'))
   },
-
-
-  /*
-  |--------------------------------------------------------------------------
-  | Ловит ошибки
-  |--------------------------------------------------------------------------
-  */
-  errCatcher (err) {
-    let error = colors.red.bold('ERROR [' + err.name + '] - ')
-    error += colors.yellow(err.message)
-    console.log(error)
-    // process.exit(1)
-  }
-
 }

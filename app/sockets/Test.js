@@ -5,21 +5,19 @@
 *
 */
 
-// ........................................................... Models
-// var myModel = require('../models/myModel');
+// Models
+// const myModel = require('../models/myModel');
 
 module.exports = function (io) {
-  // начало работы с объектом сокетов
+  // start working with sockets
   io.sockets.on('connection', function (socket) {
-    /***********************************************************
-       *  Получение сообщение
-       *
-       ***********************************************************/
+
+    // receiving message from client side  
     socket.on('send words', function (data) {
       //  console.log(data);
       var answer = ''
 
-      if (data == 'hello') {
+      if (data === 'hello') {
         answer = 'Hello, i am Socket, I have received your message. Well done!'
       } else {
         answer = 'You didnt say me hello and i am confused a little bit!'
@@ -28,10 +26,6 @@ module.exports = function (io) {
       socket.emit('socket message', answer)
     })
 
-    /***********************************************************
-        *  Отсоедение пользователя
-        *
-        ***********************************************************/
     // socket.on('disconnect', function()
     //  {
     //

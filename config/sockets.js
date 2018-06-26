@@ -1,5 +1,5 @@
 /*
-*  Сокеты
+*  Sockets
 *
 *  sockets.js
 */
@@ -7,13 +7,14 @@
 const colors = require('colors')
 const http = require('http')
 const socketIo = require('socket.io')
+const socketsConfig = global.config.sockets
 
 // Sockets controllers
 const Test = require('../app/sockets/Test.js')
 
 module.exports = function (app) {
-  const port = 2000
 
+  const port = socketsConfig.port ? socketsConfig.port : 2000 
   const httpServer = http.createServer(app) // нужно для поднятия сервера. С вариантом app.listen() - не будет работать
   const io = socketIo.listen(httpServer) // sockets object
 

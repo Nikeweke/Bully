@@ -16,12 +16,9 @@ module.exports = function (app) {
   let modeName = process.argv[2]
   let mode = {}
 
-  // определяем порт (по ум. - 8000). в файле config/settings.js лежит массив ports в нем 3 режима(dev, prod, test)  с значениями (port & mode, colors)
-  if (modeName === undefined) {
-    mode = settings.modes.dev
-  } else {
-    mode = settings.modes[modeName]
-  }
+  // определяем порт (по ум. - 8000). 
+  // в файле config/settings.js лежит массив ports в нем 3 режима(dev, prod, test) с значениями (port & mode, colors)
+  mode = modeName ? mode = settings.modes[modeName] : mode = settings.modes.dev 
 
   // запуск сервера
   app.listen(mode.port, function () {

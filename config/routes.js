@@ -12,6 +12,7 @@ module.exports = function (app) {
   app.use(bodyParser.urlencoded({ extended: false })) // parse request data - application/x-www-form-urlencoded
   app.use(cookieParser())
 
+  // routes
   require('../routes/web')(app)
   require('../routes/api')(app)
 }

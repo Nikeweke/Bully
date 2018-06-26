@@ -2,7 +2,12 @@
    "description": "Here you can define your settings for app and call it like - global.config['name'] ",
 
    "jobs": false,
-   "sockets": false,
+   
+   "sockets": {
+      "enabled": false,
+      "port": 2000
+    },
+
    "reload": false, 
 
    "databases": {

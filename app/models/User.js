@@ -1,7 +1,7 @@
 /*
 *   User.js
 *
-*   model of table 'users'
+*   model of table 'users', extends by BaseModel with crud functions
 *
 */
 
