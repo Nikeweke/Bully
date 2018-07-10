@@ -18,7 +18,8 @@ node app prod
 # start supervisor for app
 npm start
 
-# start supervisor hot reloading serve - it means when change something in backend or frontend it will reloads automatically backend and rerender views, but if it have reload.js on page
+# it will watch for also nunjucks templates and reload them when you changing it
+# Be sure: config.js -> reload: true
 npm run hrm
 ```
 
