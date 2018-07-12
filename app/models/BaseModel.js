@@ -11,6 +11,8 @@ const squel = require('squel')
 // const db = global.config.databases.mysql.conn
 
 const BaseModel = {
+  
+  db,
 
   /*
   |------------------------------------------------
