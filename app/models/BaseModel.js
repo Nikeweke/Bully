@@ -7,43 +7,47 @@
 
 // packages
 const squel = require('squel')
-const { db } = require('../../config/database.js')
+// const db = global.config.databases.sqlite.conn
+// const db = global.config.databases.mysql.conn
 
 const BaseModel = {
 
   /*
-   |------------------------------------------------
-   | create()
-   |------------------------------------------------
-   */
-  create (data = false) {
-    if (!data) {
-      return 'no data provided'
+  |------------------------------------------------
+  | get([id])
+  |------------------------------------------------
+  */
+  get (id = false) {
+    let sql = squel.select().from(this.table)
+
+    if (id) {
+      sql.where('id = ' + id)
     }
 
-    let sql = squel.insert()
-      .into(this.table)
-      .setFields(data)
-      .toString()
+    sql = sql.toString()
 
     return db.run(sql)
   },
 
   /*
   |------------------------------------------------
-  | find(id)
+  | create()
   |------------------------------------------------
   */
-  find (id = false) {
-    let sql = squel.select()
-      .from(this.table)
-
-    if (id) {
-      sql.where('id = ' + id)
+  create (data = false) {
+    if (!data) {
+      return 'no data provided'
     }
 
-    return db.run(sql.toString())
+    let sql = squel.insert()
+                   .into(this.table)
+                   .setFields(data)
+                   .toString()
+
+    return db.run(sql)
   },
+
+  
 
   /*
   |------------------------------------------------
@@ -56,9 +60,9 @@ const BaseModel = {
     }
 
     let sql = squel.delete()
-      .from(this.table)
-      .where('id = ' + id)
-      .toString()
+                   .from(this.table)
+                   .where('id = ' + id)
+                   .toString()
 
     return db.run(sql)
   },
@@ -74,9 +78,9 @@ const BaseModel = {
     }
 
     let sql = squel.update()
-      .table(this.table)
-      .setFields(data)
-      .toString()
+                   .table(this.table)
+                   .setFields(data)
+                   .toString()
 
     return db.run(sql)
   }
