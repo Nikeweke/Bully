@@ -8,7 +8,9 @@
 const BaseModel = require('./BaseModel')
 
 const User = {
-  table: 'USERS'
+  table: 'USERS',
+  
+  // if you wanna make sql query here: this.db.run('select * from table')
 }
 
 /*
