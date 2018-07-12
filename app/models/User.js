@@ -5,12 +5,20 @@
 *
 */
 
-const squel = require('squel')
 const BaseModel = require('./BaseModel')
-const { db } = require('../../config/database.js')
 
 const User = {
-  table: 'users'
+  table: 'USERS'
 }
+
+/*
+How to use in controller: 
+const userModel = require('../models/User')
+...
+userModel.get()
+userModel.insert()
+...
+*/
+
 
 module.exports = Object.assign(User, BaseModel)
