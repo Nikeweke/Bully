@@ -28,7 +28,7 @@ const BaseModel = {
 
     sql = sql.toString()
 
-    return db.run(sql)
+    return this.db.run(sql)
   },
 
   /*
@@ -46,7 +46,7 @@ const BaseModel = {
                    .setFields(data)
                    .toString()
 
-    return db.run(sql)
+    return this.db.run(sql)
   },
 
   
@@ -66,7 +66,7 @@ const BaseModel = {
                    .where('id = ' + id)
                    .toString()
 
-    return db.run(sql)
+    return this.db.run(sql)
   },
 
   /*
@@ -84,7 +84,7 @@ const BaseModel = {
                    .setFields(data)
                    .toString()
 
-    return db.run(sql)
+    return this.db.run(sql)
   }
 }
 
