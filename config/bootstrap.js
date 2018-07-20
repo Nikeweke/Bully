@@ -4,18 +4,17 @@
 *  Import of packages and setup of app
 */
 // Set global config from './config.json'
-const fs = require('fs')
-global.config = JSON.parse(fs.readFileSync('config.json', 'utf8'))
+global.config    = require('../config.json')
 
 const express = require('express')
-require('express-group-routes')
 const nunjucks = require('nunjucks')
-const routes = require('./routes')
-const server = require('./server.js')
+const routes   = require('./routes')
+const server   = require('./server.js')
 const database = require('./database.js')
-const reload = require('reload')
-const jobs = require('../app/jobs/jobs.js')
-const sockets = require('./sockets.js')
+const reload   = require('reload')
+const jobs     = require('../app/jobs/jobs.js')
+const sockets  = require('./sockets.js')
+require('express-group-routes')
 
 module.exports = function () {
   /*
