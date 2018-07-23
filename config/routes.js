@@ -13,6 +13,6 @@ module.exports = function (app) {
   app.use(cookieParser())
 
   // routes
-  require('../routes/web')(app)
-  require('../routes/api')(app)
+  app.use('/',    require('../routes/web'))
+  app.use('/api', require('../routes/api'))
 }

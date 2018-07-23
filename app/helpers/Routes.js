@@ -99,16 +99,12 @@ function formatRoutes (app) {
     let method
 
     let methodLen = route.methods.length
-    if (methodLen > 4) {
+    if (methodLen > 4 || methodLen === 0) {
       method = colors['america'](`{${'ALL'}}`)
     }
 
     else if (methodLen > 2 && methodLen < 4) {
      method = colors['america'](`{${'FEW'}}`)
-    }
-
-    else if (methodLen === 0) {
-      method = colors.bold['magenta'](`${'Router'}`)
     }
 
     else {

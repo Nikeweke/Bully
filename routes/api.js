@@ -4,13 +4,16 @@
  *   API Routes
  *
  */
+const express = require('express')
+const router  = express.Router()
 
-const CheckRequest = require('../app/helpers/CheckRequest');
+// you can apply middleware to this all routes
+// router.use(function timeLog(req, res, next) {
+//   console.log('Time: ', Date.now());
+//   next();
+// });
 
-module.exports = function (app) {
-  app.group("/api", (router) => {
+router.all('/check', (req, res) => res.send({ message: 'That is API, Hello from Bullz' }));
 
-    router.all('/check', CheckRequest.Check) // gives info about request, output in console and in browser
+module.exports = router
 
-  })
-}
