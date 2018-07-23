@@ -11,7 +11,6 @@ const routes     = require('./routes')
 const server     = require('./server.js')
 const database   = require('./database.js')
 const prototypes = require('./prototypes.js')
-require('express-group-routes')
 
 
 module.exports = function () {
