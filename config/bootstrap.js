@@ -3,25 +3,22 @@
 *
 *  Import of packages and setup of app
 */
-// Set global config from './config.json'
-global.config    = require('../config.json')
-
-const express = require('express')
-const nunjucks = require('nunjucks')
-const routes   = require('./routes')
-const server   = require('./server.js')
-const database = require('./database.js')
-const reload   = require('reload')
-const jobs     = require('../app/jobs/jobs.js')
-const sockets  = require('./sockets.js')
+ 
+global.config    = require('../config.json')  // Set global config from './config.json'
+const express    = require('express')
+const nunjucks   = require('nunjucks')
+const routes     = require('./routes')
+const server     = require('./server.js')
+const database   = require('./database.js')
+const prototypes = require('./prototypes.js')
 require('express-group-routes')
+
 
 module.exports = function () {
   /*
   |--------------------------------------------------------------------------
   | Init app with express.js
   |--------------------------------------------------------------------------
-  |
   */
   const app = express()
 
@@ -30,10 +27,17 @@ module.exports = function () {
   |--------------------------------------------------------------------------
   | Connect to DB
   |--------------------------------------------------------------------------
-  |  Can comment it if not using DB
-  |
   */
   database.connect()
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Apply custom prototypes
+  |--------------------------------------------------------------------------
+  |
+  */
+  prototypes()
 
 
   /*
@@ -44,7 +48,6 @@ module.exports = function () {
   */
   nunjucks.configure('views', { autoescape: true, express: app })
   app.set('view engine', 'njk')
-
 
 
   /*
@@ -61,10 +64,9 @@ module.exports = function () {
   |  Jobs start
   |--------------------------------------------------------------------------
   |   Запуск здесь 'app / jobs / jobs.js'.
-  |   Можно закоментировать - приложение будет работать
   |
   */
-  if (global.config.jobs) { jobs() }
+  if (global.config.jobs) { require('../app/jobs/jobs.js').jobs() }
 
 
   /*
@@ -72,18 +74,14 @@ module.exports = function () {
   | Sockets start
   |--------------------------------------------------------------------------
   |   Запуск здесь 'app / config / sockets.js', и там же можно изменить порт сокетов
-  |
-  |   Можно закоментировать - приложение будет работать
-  |
   */
-  if (global.config.sockets.enabled) { sockets(app) }
+  if (global.config.sockets.enabled) { require('./sockets.js').sockets(app) }
 
 
   /*
   |--------------------------------------------------------------------------
   | Routes
   |--------------------------------------------------------------------------
-  |
   | Routes gather all routes in one file.
   | Routes lives in ./routes.
   |
@@ -95,23 +93,14 @@ module.exports = function () {
   |--------------------------------------------------------------------------
   | Reload browser if javascript was changed, not views (for rerendering views use: npm i supervisor -g, npm start hrm)
   |--------------------------------------------------------------------------
-  | OFF IT WHEN HAVE A FEW servers and WHEN IN PROD mode
-  |
   */
-  if (global.config.reload) { reload(app) }
+  if (global.config.reload) { require('reload')(app) }
 
 
   /*
   |--------------------------------------------------------------------------
   | Up the server
   |--------------------------------------------------------------------------
-  |
-  | node app      -> :8000 in dev
-  | node app dev  -> :8000 in dev
-  | node app prod -> :8000 in prod
-  |
-  |  Can change port settings in config/settings.js
-  |
   */
   server(app)
 }

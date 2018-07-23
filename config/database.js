@@ -28,13 +28,14 @@ module.exports = {
     }
   },
 
+
   /*
   |--------------------------------------------------------------------------
   | Подключение к MySql
   |--------------------------------------------------------------------------
   */
   connectMysql () {
-    let {host, user, password, database} = global.config.databases.mysql
+    let {host, user, password, database} = dbConfig.mysql
     const Mysql = require('sync-mysql')
     dbConfig.mysql.conn = new Mysql({
       host,
@@ -45,16 +46,18 @@ module.exports = {
     console.log(colors.green.bold('MySQL') + ' => Connected')
   },
 
+
   /*
   |--------------------------------------------------------------------------
   | Подключение к SQLite
   |--------------------------------------------------------------------------
   */
   connectSqlite () {
-    let {db_adress} = global.config.databases.sqlite
+    let {db_adress} = dbConfig.sqlite
     dbConfig.sqlite.conn = require('sqlite-sync').connect(db_adress)
     console.log(colors.green.bold('SQLite') + ' => Connected')
   },
+
 
   /*
   |--------------------------------------------------------------------------
@@ -62,9 +65,9 @@ module.exports = {
   |--------------------------------------------------------------------------
   */
   connectMongodb () {
-    const {db_adress} = global.config.databases.mongodb
+    const {db_adress} = dbConfig.mongodb
     const mongoose = require('mongoose') 
-    mongoose.connect(db_adress).catch(() => {})
+    mongoose.connect(db_adress, { useNewUrlParser: true }).catch(() => {})
 
     // getting connection
     let db = mongoose.connection

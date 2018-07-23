@@ -3,29 +3,39 @@
 *
 *  server.js
 */
-
-const colors = require('colors')
-const settings = require('./settings.js')
+const getRoutes = require('../app/helpers/Routes')
+const util      = require('util')
+const colors    = require('colors')
+const MODES = {
+  dev:    { name: 'dev',   port: 8000,  color: 'yellow'  },
+  test:   { name: 'test',  port: 3000,  color: 'magenta' },
+  prod:   { name: 'prod',  port: 80,    color: 'green'   },
+  routes: { name: 'routes' }
+}
 
 module.exports = function (app) {
   // что такое process.argv[...] ?
   // это просто параметры которые можно ловить с консоли - node  app  <modeName>
   //                                                        [0]   [1]  [2]
-
-  // ловим 3 параметр с консоли (когда идет запуск приложения: nodemon app [....], [....], ... )
   let modeName = process.argv[2]
-  let mode = {}
+
+  // если просмотр маршрутов
+  if (modeName === 'routes') {
+    console.log( getRoutes(app) )    
+    process.exit(1)
+  }
 
   // определяем порт (по ум. - 8000). 
-  // в файле config/settings.js лежит массив ports в нем 3 режима(dev, prod, test) с значениями (port & mode, colors)
-  mode = modeName ? mode = settings.modes[modeName] : mode = settings.modes.dev 
+  let mode = modeName ? MODES[modeName] : MODES.dev 
 
   // запуск сервера
-  app.listen(mode.port, function () {
-    let appMsg = colors.bold[mode.color]('App')
-    let portMsg = colors.bold[mode.color](mode.port)
-    let modeMsg = colors.bold[mode.color](mode.name)
+  app.listen(mode.port, () => {
+    let coloredMsg = []
+    for (let key of Object.keys(mode)) {
+      coloredMsg.push(colors.bold[mode.color](mode[key]))
+    }
+    coloredMsg[2] = colors.bold[mode.color]('App')
 
-    console.log(`${appMsg} is running on port: ${portMsg} (${modeMsg} mode)`)
+    util.log(`${coloredMsg[2]} is running on port: ${coloredMsg[1]} (${coloredMsg[0]} mode)`)
   })
 }

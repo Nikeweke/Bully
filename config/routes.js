@@ -3,8 +3,8 @@
 *
 *  Маршруты приложения
 */
-const bodyParser = require('body-parser') // Body-parser
-const cookieParser = require('cookie-parser') // cookieParser
+const bodyParser = require('body-parser') 
+const cookieParser = require('cookie-parser') 
 
 module.exports = function (app) {
   // set middleware

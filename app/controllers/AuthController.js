@@ -1,7 +1,5 @@
-/*
-*   AuthController.js
-*
-*/
+/** @module AuthController */
+
 const bcrypt = require('bcrypt') 
 const userModel = require('../models/User')
 const emailHelper = require('../helpers/Email')
