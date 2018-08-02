@@ -21,6 +21,9 @@ npm start
 # it will watch for also nunjucks templates and reload them when you changing it
 # Be sure: config.js -> reload: true
 npm run hrm
+
+# show routes
+node app routes
 ```
 
 #### Содержание
