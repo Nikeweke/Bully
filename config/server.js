@@ -26,7 +26,7 @@ module.exports = function (app) {
   }
 
   // определяем порт (по ум. - 8000). 
-  let mode = modeName ? MODES[modeName] : MODES.dev 
+  let mode = modeName && modeName in MODES ? MODES[modeName] : MODES.dev 
 
   // запуск сервера
   app.listen(mode.port, () => {
