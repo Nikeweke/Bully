@@ -7,7 +7,7 @@
     "start": "node app prod",
     "dev": "node app",
     "test": "node app test",
-    "deamon": "supervisor app",
+    "daemon": "supervisor app",
     "hrm": "supervisor -e njk,js app"
   },
   "repository": {
