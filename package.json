@@ -4,11 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app prod",
-    "dev": "node app",
-    "test": "node app test",
+    "start": "node app",
+    "dev": "node app dev",
+    "prod": "node app prod",
     "daemon": "supervisor app",
-    "hrm": "supervisor -e njk,js app"
+    "hrm": "supervisor -e njk,js app",
+    "test": "mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,10 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "nunjucks": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^5.2.0"
   }
 }

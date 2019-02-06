@@ -8,7 +8,6 @@ const util      = require('util')
 const colors    = require('colors')
 const MODES = {
   dev:    { name: 'dev',   port: 8000,  color: 'yellow'  },
-  test:   { name: 'test',  port: 3000,  color: 'magenta' },
   prod:   { name: 'prod',  port: 80,    color: 'green'   },
   routes: { name: 'routes' }
 }
@@ -36,6 +35,8 @@ module.exports = function (app) {
     }
     coloredMsg[2] = colors.bold[mode.color]('App')
 
-    util.log(`${coloredMsg[2]} is running on port: ${coloredMsg[1]} (${coloredMsg[0]} mode)`)
+    util.log(`${coloredMsg[2]} is running (${coloredMsg[0]} mode): http://localhost:${coloredMsg[1]}/`)
   })
+
+  return app
 }

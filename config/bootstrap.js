@@ -98,10 +98,10 @@ module.exports = function () {
 
   /*
   |--------------------------------------------------------------------------
-  | Up the server
+  | Up the server (making return for testing)
   |--------------------------------------------------------------------------
   */
-  server(app)
+  return server(app)
 }
 
 // app.set('view engine', 'ejs');                     // Установка шаблонизатора "EJS": 1) npm i ejs --save;    2) Uncomment this line;    3) create file index.ejs;    4) use it;
