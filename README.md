@@ -22,6 +22,9 @@ npm start
 # Be sure: config.js -> reload: true
 npm run hrm
 
+# start unittests
+npm test
+
 # show routes
 node app routes
 ```
@@ -71,6 +74,9 @@ node app routes
 #### routes
  Роуты для приложения
 
+#### test
+ Unittests
+
 #### views
   Шаблоны используемые в приложении
 
@@ -79,11 +85,6 @@ node app routes
 
 #### config.json
   Здесь вы можете прописать свои настройки, включить или выключить jobs, sockets, databases и т.д.  
-
-#### run.bat
- Запуск приложение с помощью ".bat" файла
-
-
 
 
 ## Шаблонизатор <a id="templater"></a>
