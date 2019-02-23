@@ -74,7 +74,7 @@ module.exports = function () {
   |--------------------------------------------------------------------------
   |   Запуск здесь 'app / config / sockets.js', и там же можно изменить порт сокетов
   */
-  if (global.config.sockets.enabled) { require('./sockets.js').sockets(app) }
+  if (global.config.sockets.enabled) { require('./sockets.js')(app) }
 
 
   /*

@@ -1,13 +1,12 @@
 /*
-*  Главный script - точка входа
+*  Entry point
 *
 *  app.js
 */
 
-// Requires
-const bootstrap = require('./config/bootstrap.js')
+const bootstrap = require('./settings/bootstrap.js')
 
-// Bootstraping APP
+// Bootstraping app
 bootstrap()
 
 

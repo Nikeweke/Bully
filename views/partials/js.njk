@@ -24,7 +24,7 @@
     */
     function SendToSockets() {
       var text = document.getElementById('socket_field').value
-      socket.emit('send words', text);
+      socket.emit('custom_event', text);
     }
 
     /*

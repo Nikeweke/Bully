@@ -6,8 +6,8 @@
    "reload": false, 
 
    "sockets": {
-      "enabled": false,
-      "port": 2000
+      "enabled": true,
+      "port": 3000
     },
 
    "databases": {
