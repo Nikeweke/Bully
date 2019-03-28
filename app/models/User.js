@@ -7,7 +7,7 @@
 
 const BaseModel = require('./BaseModel')
 
-const User = {
+const Model = {
   table: 'USERS',
   
   // if you wanna make sql query here: this.db.run('select * from table')
@@ -23,4 +23,4 @@ userModel.insert()
 */
 
 
-module.exports = Object.assign(User, BaseModel)
+module.exports = {...BaseModel, ...Model}
