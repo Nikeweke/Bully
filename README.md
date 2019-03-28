@@ -1,4 +1,4 @@
-## Bullz - simple framework for Node
+## Bully - simple bully framework for Node
 
 <p align="center" style="text-align:center;">
   <img src="https://github.com/Nikeweke/Nomad.js/blob/master/public/assets/bull.png?raw=true" width="300" />

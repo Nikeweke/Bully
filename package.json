@@ -1,5 +1,5 @@
 {
-  "name": "Bullz",
+  "name": "Bully",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -13,17 +13,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nikeweke/Bullz.git"
+    "url": "git+https://github.com/Nikeweke/Bully.git"
   },
   "keywords": [
-    "Bullz"
+    "Bully"
   ],
   "author": "Nikeweke",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nikeweke/Bullz.git"
+    "url": "https://github.com/Nikeweke/Bully.git"
   },
-  "homepage": "https://github.com/Nikeweke/Bullz.git",
+  "homepage": "https://github.com/Nikeweke/Bully.git",
   "dependencies": {
     "body-parser": "^1.15.2",
     "colors": "^1.1.2",

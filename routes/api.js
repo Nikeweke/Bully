@@ -13,7 +13,7 @@ const router  = express.Router()
 //   next();
 // });
 
-router.all('/check', (req, res) => res.send({ message: 'That is API, Hello from Bullz' }));
+router.all('/check', (req, res) => res.send({ message: 'That is API, Hello from Bully' }));
 
 module.exports = router
 

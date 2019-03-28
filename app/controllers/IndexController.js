@@ -12,7 +12,7 @@ module.exports = {
     */
   Index (req, res) {
     let viewArgs = {
-      greeting: 'Bullz is greeting you!',
+      greeting: 'Bully is greeting you!',
       words: 'Makes problems run'
     }
 

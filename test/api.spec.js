@@ -18,7 +18,7 @@ module.exports = function (server) {
           .end((err, res) => {
             res.should.have.status(200)
             res.body.should.be.a('object')
-            res.body.should.have.property('message').eql('That is API, Hello from Bullz')
+            res.body.should.have.property('message').eql('That is API, Hello from Bully')
             done()
           })
       })
@@ -31,7 +31,7 @@ module.exports = function (server) {
           .end((err, res) => {
             res.should.have.status(200)
             res.body.should.be.a('object')
-            res.body.should.have.property('message').eql('That is API, Hello from Bullz')
+            res.body.should.have.property('message').eql('That is API, Hello from Bully')
             done()
           })
       })
