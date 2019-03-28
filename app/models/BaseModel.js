@@ -4,15 +4,14 @@
 *   Base model that have basic methods for all models
 *
 */
-
-// packages
 const squel = require('squel')
-// const db = global.config.databases.sqlite.conn
-// const db = global.config.databases.mysql.conn
 
 const BaseModel = {
   
-  db,
+  db () {
+    return global.databases.mysql
+    // return global.databases.sqlite
+  },
 
   /*
   |------------------------------------------------
@@ -21,14 +20,10 @@ const BaseModel = {
   */
   get (id = false) {
     let sql = squel.select().from(this.table)
-
-    if (id) {
-      sql.where('id = ' + id)
-    }
-
+    id ? sql.where('id = ' + id) : false  
     sql = sql.toString()
 
-    return this.db.run(sql)
+    return this.db().query(sql)
   },
 
   /*
@@ -46,7 +41,7 @@ const BaseModel = {
                    .setFields(data)
                    .toString()
 
-    return this.db.run(sql)
+    return this.db().run(sql)
   },
 
   
@@ -66,7 +61,7 @@ const BaseModel = {
                    .where('id = ' + id)
                    .toString()
 
-    return this.db.run(sql)
+    return this.db().run(sql)
   },
 
   /*
@@ -84,7 +79,7 @@ const BaseModel = {
                    .setFields(data)
                    .toString()
 
-    return this.db.run(sql)
+    return this.db().run(sql)
   }
 }
 

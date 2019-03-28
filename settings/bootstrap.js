@@ -4,14 +4,15 @@
 *  Import of packages and setup of app
 */
  
-global.config    = require('../config.json')  // Set global config from './config.json'
+// defining globals
+require('./globals')()
+
 const express    = require('express')
 const nunjucks   = require('nunjucks')
 const routes     = require('./routes')
 const server     = require('./server.js')
 const database   = require('./database.js')
 const prototypes = require('./prototypes.js')
-
 
 module.exports = function () {
   /*

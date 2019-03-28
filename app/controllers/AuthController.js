@@ -6,13 +6,8 @@ const emailHelper = require('../helpers/Email')
 
 module.exports = {
 
-    /**
-    * @api {GET}         /api/auth     checkUser()
-    * @apiDescription                  check user if exist in db, if true - return token
-    * @apiGroup                        AuthController
-    */
+    // check user if exist in db, if true - return token
     async checkUser (req, res) {
-
       let {email, password} = req.body
 
       // - Проверять, есть ли пользователь в базе и генерировать токен. 
@@ -45,11 +40,7 @@ module.exports = {
     },
 
 
-    /**
-    * @api {POST}         /api/register     registerUser()
-    * @apiDescription                   create new user
-    * @apiGroup                         AuthController
-    */
+    // create new user
     registerUser (req, res) {
        // create item
        userModel.create(req.body, (err, item) => {
