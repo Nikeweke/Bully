@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "dev": "node app dev",
-    "prod": "node app prod",
+    "dev": "cross-env NODE_ENV=dev node app",
+    "prod": "cross-env NODE_ENV=production node app prod",
     "daemon": "supervisor app",
     "hrm": "supervisor -e njk,js app",
     "test": "mocha --exit"
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Nikeweke/Bully.git",
   "dependencies": {
+    "cross-env": "^5.2.0",
     "body-parser": "^1.15.2",
     "colors": "^1.1.2",
     "cookie-parser": "^1.4.3",
