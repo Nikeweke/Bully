@@ -9,10 +9,10 @@ module.exports = function (server) {
 
   const TEST_API = '/api/check'
 
-  describe('API', () => {
+  describe('API-routes', () => {
   
-    describe(`{GET} ${TEST_API}`, () => {
-      it('it should GET object with {message: ...}', (done) => {
+    describe(`{GET, POST} ${TEST_API}`, () => {
+      it('it should GET 200, body - object, inside property - "message"', (done) => {
         chai.request(server)
           .get(TEST_API)
           .end((err, res) => {
@@ -22,10 +22,8 @@ module.exports = function (server) {
             done()
           })
       })
-    })
 
-    describe(`{POST} ${TEST_API}`, () => {
-      it('it should GET object with {message: ...}', (done) => {
+      it('it should POST 200, body - object, inside property - "message"', (done) => {
         chai.request(server)
           .post(TEST_API)
           .end((err, res) => {
@@ -36,8 +34,6 @@ module.exports = function (server) {
           })
       })
     })
-
-  
   })
 
 }

@@ -13,7 +13,7 @@ const CheckReq = require('../app/helpers/CheckRequest')
 
 // middlewares
 const checkRequest = require('./middleware/CheckRequest')
-const middlewares = [checkRequest]
+const middlewares = []
 
 //  home page
 router.get('/', middlewares, (res, req) => IndexCtrl.Index(res, req)) 
