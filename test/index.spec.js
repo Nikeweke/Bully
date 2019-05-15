@@ -4,3 +4,4 @@ process.env.NODE_ENV = 'test'
 let server = require('../settings/bootstrap.js')()
 
 require('./api.spec')(server)
+require('./web.spec')(server)
